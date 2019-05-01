@@ -5,14 +5,26 @@ import styles from './index.scss';
 
 const Tab = (props) => {
   const { to, text, } = props;
+
+  const classNameFor = (pathname) => {
+    let result = styles.tab;
+    if (to === pathname) result += ` ${styles.tab_select}`;
+    return result;
+  };
+
   return (
     <Route>
       {
-        <Link to={to}>
-          <button type="button" className={styles.tab}>
-            {text}
-          </button>
-        </Link>
+        ({ location, }) => {
+          const className = classNameFor(location.pathname);
+          return (
+            <Link to={to}>
+              <button type="button" className={className}>
+                {text}
+              </button>
+            </Link>
+          );
+        }
       }
     </Route>
   );
