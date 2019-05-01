@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #4A90E2;
+
+  .tab {
+    width: 220px;
+    height: 76px;
+    background: #4A90E2;
+    border: none;
+    align-self: center;
+    font-size: 24px;
+    color: #00408B;
+  }
+
+  .tab_select {
+    color: #FFFFFF;
+  }
+}
