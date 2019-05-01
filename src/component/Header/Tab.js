@@ -6,16 +6,10 @@ import styles from './index.scss';
 const Tab = (props) => {
   const { to, text, } = props;
   return (
-    <Route
-      exact
-      path="/"
-    >
+    <Route>
       {
         <Link to={to}>
-          <button
-            type="button"
-            className={styles.tab}
-          >
+          <button type="button" className={styles.tab}>
             {text}
           </button>
         </Link>
