@@ -1,18 +1,49 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import MyTasks from './MyTasks.js';
-import InProgress from './InProgress.js';
-import Completed from './Completed.js';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Todolist from '../Todolist';
 import styles from './index.scss';
 
-const Content = () => (
-  <div className={styles.content}>
-    <Switch>
-      <Route exact path="/" component={MyTasks} />
-      <Route path="/inProgress" component={InProgress} />
-      <Route path="/completed" component={Completed} />
-    </Switch>
-  </div>
-);
+const Content = (props) => {
+  const { todolist, } = props;
+  const todolistDOM = todolist.map(list => (
+    <Todolist key={list.key} list={list} />
+  ));
+  return (
+    <div className={styles.content}>
+      { todolistDOM }
+    </div>
+  );
+};
 
-export default Content;
+Content.propTypes = {
+  todolist: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.number,
+    import: PropTypes.bool,
+    completed: PropTypes.bool,
+    title: PropTypes.string,
+    deadlineDate: PropTypes.string,
+    deadlineTime: PropTypes.string,
+    file: PropTypes.string,
+    description: PropTypes.string,
+  })),
+};
+
+Content.defaultProps = {
+  todolist: [{
+    key: 0,
+    import: false,
+    completed: false,
+    title: '',
+    deadlineDate: '',
+    deadlineTime: '',
+    file: '',
+    description: '',
+  }],
+};
+
+const mapStateToProps = state => ({
+  todolist: state.todolist,
+});
+
+export default connect(mapStateToProps)(Content);
