@@ -1,3 +1,12 @@
+export const CHANGE_CONTENT_TYPE = 'CHANGE_CONTENT_TYPE';
+
+export const changeContentType = contentType => ({
+  type: CHANGE_CONTENT_TYPE,
+  payload: {
+    contentType,
+  },
+});
+
 export const ADD_TODOLIST = 'ADD_TODOLIST';
 
 export const addTodolist = todolist => ({
