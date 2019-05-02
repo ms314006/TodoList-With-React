@@ -1,43 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Link } from 'react-router-dom';
 import styles from './index.scss';
 
 const Tab = (props) => {
-  const { to, text, } = props;
+  const { contentType, text, changeContentType } = props;
 
-  const classNameFor = (pathname) => {
+  const classNameFor = (type) => {
     let result = styles.tab;
-    if (to === pathname) result += ` ${styles.tab_select}`;
+    if (type === text) result += ` ${styles.tab_select}`;
     return result;
   };
 
   return (
-    <Route>
-      {
-        ({ location, }) => {
-          const className = classNameFor(location.pathname);
-          return (
-            <Link to={to}>
-              <button type="button" className={className}>
-                {text}
-              </button>
-            </Link>
-          );
-        }
-      }
-    </Route>
+    <button
+      type="button"
+      className={classNameFor(contentType)}
+      onClick={() => { changeContentType(text); }}
+    >
+      {text}
+    </button>
   );
 };
 
 Tab.propTypes = {
-  to: PropTypes.string,
   text: PropTypes.string,
+  contentType: PropTypes.string,
+  changeContentType: PropTypes.func,
 };
 
 Tab.defaultProps = {
-  to: '/',
   text: '',
+  contentType: '',
+  changeContentType: () => { console.log('changeContentType'); },
 };
 
 export default Tab;
