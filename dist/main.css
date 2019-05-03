@@ -1,6 +1,10 @@
-.src-component-Header-___index__header___lx1LI{display:flex;justify-content:center;flex-wrap:wrap;background:#4A90E2}.src-component-Header-___index__header___lx1LI .src-component-Header-___index__tab___363oP{width:220px;height:76px;background:#4A90E2;border:none;align-self:center;font-size:24px;color:#00408B}.src-component-Header-___index__header___lx1LI .src-component-Header-___index__tab_select___QlLMA{color:#FFFFFF}
+.src-component-Header-Tab-___index__tab___1eklS{width:220px;height:76px;background:#4A90E2;border:none;align-self:center;font-size:24px;color:#00408B}.src-component-Header-Tab-___index__tab_select___owbB0{color:#FFFFFF;border-bottom:5px #00408B solid}
 
-.src-component-Content-___index__content___1Fnt4{background:#E1E1E1}
+.src-component-Header-___index__header___lx1LI{display:flex;justify-content:center;flex-wrap:wrap;background:#4A90E2}
+
+.src-component-Content-AddInput-___index__add_tasks_block___2E4dX{margin:24px 0px 24px 0px}.src-component-Content-AddInput-___index__add_tasks_button___1C3xH{width:100%;height:65px;text-align:left;background:#FFFFFF;border:2px solid #C8C8C8;border-radius:5px;font-size:24px;color:#C8C8C8}
+
+.src-component-Content-___index__content___1Fnt4{width:100%;background:#E1E1E1}.src-component-Content-___index__content_list___11XGF{margin:auto;width:670px}
 
 .src-component-Main-___index__main___1vIeC{width:100%;height:100%;display:grid;grid-template-rows:76px}
 
