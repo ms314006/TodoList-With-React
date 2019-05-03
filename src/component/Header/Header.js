@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Tab from './Tab.js';
+import Tab from './Tab';
 import { changeContentType } from '../../actions/todolist';
 import styles from './index.scss';
 
