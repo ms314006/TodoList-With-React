@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import AddInput from './AddInput';
 import Todolist from '../Todolist';
 import styles from './index.scss';
 
@@ -15,7 +16,10 @@ const Content = (props) => {
 
   return (
     <div className={styles.content}>
-      { todolistFor(todolist) }
+      <div className={styles.content_list}>
+        <AddInput />
+        { todolistFor(todolist) }
+      </div>
     </div>
   );
 };
