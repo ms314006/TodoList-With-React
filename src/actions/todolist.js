@@ -27,10 +27,10 @@ export const modifyTodoList = todolist => ({
 
 export const CHANGE_TODOLIST_STATUS = 'CHANGE_TODOLIST_STATUS';
 
-export const changeTodolistStatus = ({ key, status, }) => ({
+export const changeTodolistStatus = ({ id, status, }) => ({
   type: CHANGE_TODOLIST_STATUS,
   payload: {
-    key,
+    id,
     status,
   },
 });

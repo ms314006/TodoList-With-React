@@ -8,7 +8,7 @@ import {
 const initState = {
   contentType: 'My Tasks',
   todolist: [{
-    key: 1,
+    id: 1,
     import: false,
     completed: false,
     title: '打文章',
