@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './index.scss';
 
 const Tab = (props) => {
-  const { contentType, text, changeContentType } = props;
+  const { contentType, text, changeContentType, } = props;
 
   const classNameFor = (type) => {
     let result = styles.tab;

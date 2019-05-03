@@ -6,19 +6,23 @@ import styles from './index.scss';
 
 const Content = (props) => {
   const { todolist, } = props;
-  const todolistDOM = todolist.map(list => (
-    <Todolist key={list.key} list={list} />
-  ));
+
+  const todolistFor = data => (
+    data.map(list => (
+      <Todolist key={list.id} list={list} />
+    ))
+  );
+
   return (
     <div className={styles.content}>
-      { todolistDOM }
+      { todolistFor(todolist) }
     </div>
   );
 };
 
 Content.propTypes = {
   todolist: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.number,
+    id: PropTypes.number,
     import: PropTypes.bool,
     completed: PropTypes.bool,
     title: PropTypes.string,
@@ -31,7 +35,7 @@ Content.propTypes = {
 
 Content.defaultProps = {
   todolist: [{
-    key: 0,
+    id: 0,
     import: false,
     completed: false,
     title: '',
