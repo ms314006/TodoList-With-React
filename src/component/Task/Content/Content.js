@@ -14,7 +14,7 @@ const Content = () => {
         </div>
       </div>
       <div className={styles.flex_row}>
-        <div className={styles.flex_col_icon}>&nbsp;</div>
+        <div className={styles.flex_col_icon} />
         <div className={styles.flex_col_content}>
           <input
             className={styles.input_task_data}
@@ -36,7 +36,7 @@ const Content = () => {
         </div>
       </div>
       <div className={styles.flex_row}>
-        <div className={styles.flex_col_icon}>&nbsp;</div>
+        <div className={styles.flex_col_icon} />
         <div className={styles.flex_col_content}>
           <i className={`fas fa-plus-square ${styles.add_file_icon}`} />
         </div>
@@ -50,7 +50,7 @@ const Content = () => {
         </div>
       </div>
       <div className={styles.flex_row}>
-        <div className={styles.flex_col_icon}>&nbsp;</div>
+        <div className={styles.flex_col_icon} />
         <div className={styles.flex_col_content}>
           <textarea
             cols="50"

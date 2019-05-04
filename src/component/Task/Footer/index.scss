@@ -14,7 +14,15 @@
   color: #D0021B;
 }
 
+.cancel_button:hover {
+  background: #FBFBFB;
+}
+
 .save_button {
   background: #4A90E2;
   color: #FFFFFF;
+}
+
+.save_button:hover {
+  background: #3982D7;
 }

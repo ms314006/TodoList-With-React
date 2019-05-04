@@ -1,5 +1,5 @@
 .task_content_block {
-  padding: 20px 80px;
+  padding: 20px 80px 35px 80px;
   font-size: 20px;
 }
 
@@ -26,4 +26,8 @@
 .add_file_icon {
   font-size: 28px;
   color: #C8C8C8;
+}
+
+.add_file_icon:hover {
+  color: #4A90E2;
 }
