@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import styles from './index.scss';
 
 const Header = (props) => {
-  const { type, list, detailDataRow, } = props;
+  const {
+    type,
+    list,
+    detailDataRow,
+    changeData,
+  } = props;
   return (
     <div className={list.import ? styles.import_task_header : styles.task_header}>
       <div className={type === 'display' ? styles.display_main_data : styles.main_data}>
@@ -30,10 +35,17 @@ const Header = (props) => {
             : (
               <input
                 type="text"
+                value={list.title}
                 className={`${styles.task_title} ${
                   list.import ? styles.import_task_header : ''
                 }`}
                 placeholder="Type Something Here…"
+                onChange={(event) => {
+                  changeData({
+                    ...list,
+                    title: event.target.value,
+                  });
+                }}
               />
             )
           }
@@ -68,6 +80,7 @@ Header.propTypes = {
     description: PropTypes.string,
   }),
   detailDataRow: PropTypes.shape(),
+  changeData: PropTypes.func,
 };
 
 Header.defaultProps = {
@@ -84,6 +97,7 @@ Header.defaultProps = {
     description: '',
   },
   detailDataRow: <></>,
+  changeData: () => { console.log('Header changeData'); },
 };
 
 export default Header;
