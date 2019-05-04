@@ -1,22 +1,44 @@
 .task_header {
+  background: #F2F2F2;
+  border-radius: 5px;
+}
+
+@mixin main_data_style {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 76px;
-  border-bottom: 2px solid #C8C8C8;
   font-size: 24px;
-  color: #000000; 
+  color: #000000;
+}
+
+.main_data {
+  @include main_data_style();
+  border-bottom: 2px solid #C8C8C8;
+}
+
+.display_main_data {
+  @include main_data_style();
 }
 
 .check_completed {
   color: #4A90E2;
 }
 
-.input_task_name {
-  width: 450px;
-  background: #F2F2F2;
+.title_block {
+  width: 420px;
+}
+
+.task_title {
+  width: 100%;
   font-size: 24px;
+  background: #F2F2F2;
   border: none;
+}
+
+.completed_task_title {
+  text-decoration: line-through;
+  color: #9B9B9B;
 }
 
 .check_import {
@@ -25,4 +47,12 @@
 
 .edit_tasks_icon {
   color: #4A90E2;
+}
+
+.list_title_block {
+  width: 450px;
+}
+
+.import_task_header {
+  background: #FFF2DC;
 }
