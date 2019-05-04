@@ -30,7 +30,9 @@ const Header = (props) => {
             : (
               <input
                 type="text"
-                className={styles.task_title}
+                className={`${styles.task_title} ${
+                  list.import ? styles.import_task_header : ''
+                }`}
                 placeholder="Type Something Here…"
               />
             )
