@@ -1,0 +1,28 @@
+.task_header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 76px;
+  border-bottom: 2px solid #C8C8C8;
+  font-size: 24px;
+  color: #000000; 
+}
+
+.check_completed {
+  color: #4A90E2;
+}
+
+.input_task_name {
+  width: 450px;
+  background: #F2F2F2;
+  font-size: 24px;
+  border: none;
+}
+
+.check_import {
+  color: #F5A623;
+}
+
+.edit_tasks_icon {
+  color: #4A90E2;
+}
