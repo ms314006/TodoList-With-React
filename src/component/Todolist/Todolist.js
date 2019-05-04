@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 
 const Todolist = (props) => {
   const { list, } = props;
-  return <h1>{list.title}</h1>;
+  return (
+    <div>
+      {list.title}
+    </div>
+  );
 };
 
 Todolist.propTypes = {
   list: PropTypes.shape({
-    key: PropTypes.number,
+    id: PropTypes.number,
+    onEdit: PropTypes.bool,
     import: PropTypes.bool,
     completed: PropTypes.bool,
     title: PropTypes.string,
@@ -21,7 +26,8 @@ Todolist.propTypes = {
 
 Todolist.defaultProps = {
   list: {
-    key: 0,
+    id: 0,
+    onEdit: false,
     import: false,
     completed: false,
     title: '',

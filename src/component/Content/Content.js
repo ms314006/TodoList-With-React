@@ -27,6 +27,7 @@ const Content = (props) => {
 Content.propTypes = {
   todolist: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
+    onEdit: PropTypes.bool,
     import: PropTypes.bool,
     completed: PropTypes.bool,
     title: PropTypes.string,
@@ -40,6 +41,7 @@ Content.propTypes = {
 Content.defaultProps = {
   todolist: [{
     id: 0,
+    onEdit: false,
     import: false,
     completed: false,
     title: '',

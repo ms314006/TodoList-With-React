@@ -9,6 +9,7 @@ const initState = {
   contentType: 'My Tasks',
   todolist: [{
     id: 1,
+    onEdit: false,
     import: false,
     completed: false,
     title: '打文章',
