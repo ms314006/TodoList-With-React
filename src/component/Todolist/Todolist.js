@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import List from './List';
 
 const Todolist = (props) => {
   const { list, } = props;
   return (
     <div>
-      {list.title}
+      <List list={list} />
     </div>
   );
 };
