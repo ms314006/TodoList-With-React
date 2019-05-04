@@ -29,15 +29,9 @@ const List = (props) => {
     };
     return (
       <div className={styles.detail_data_row}>
-        {
-          deadlineDate === '' ? null : dataIconFor('date')
-        }
-        {
-          file === '' ? null : dataIconFor('file')
-        }
-        {
-          description === '' ? null : dataIconFor('description')
-        }
+        { deadlineDate === '' ? null : dataIconFor('date') }
+        { file === '' ? null : dataIconFor('file') }
+        { description === '' ? null : dataIconFor('description') }
       </div>
     );
   };

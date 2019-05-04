@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import List from './List';
+import Task from '../Task';
+
 
 const Todolist = (props) => {
   const { list, } = props;
   return (
     <div>
-      <List list={list} />
+      {list.onEdit ? <Task list={list} /> : <List list={list} />}
     </div>
   );
 };
