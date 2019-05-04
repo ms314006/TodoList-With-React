@@ -1,0 +1,29 @@
+.task_content_block {
+  padding: 20px 80px;
+  font-size: 20px;
+}
+
+.flex_row {
+  display: flex;
+  margin-top: 15px;
+}
+
+.flex_col_icon {
+  flex-shrink: 9;
+  width: 100%;
+}
+
+.flex_col_content {
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.input_task_data {
+  font-size: 16px;
+  border: none;
+}
+
+.add_file_icon {
+  font-size: 28px;
+  color: #C8C8C8;
+}

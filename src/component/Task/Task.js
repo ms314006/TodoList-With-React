@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Footer from './Footer';
 import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
 import styles from './index.scss';
 
 const Task = (props) => {
@@ -9,6 +10,7 @@ const Task = (props) => {
   return (
     <div className={styles.task_block}>
       <Header />
+      <Content />
       <Footer switchAddTask={switchAddTask} />
     </div>
   );
