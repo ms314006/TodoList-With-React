@@ -10,7 +10,12 @@ const Todolist = (props) => {
   return (
     <div className={styles.list_block}>
       {list.onEdit
-        ? <Task list={list} />
+        ? (
+          <Task
+            list={list}
+            switchAddTask={() => { changeTodolistStatus(list.id, 'onEdit'); }}
+          />
+        )
         : (
           <List
             list={list}

@@ -36,7 +36,10 @@ const List = (props) => {
   };
 
   return (
-    <div>
+    <div
+      onClick={() => { changeTodolistStatus(list.id, 'onEdit'); }}
+      onKeyPress={() => {}}
+    >
       <Header
         type="display"
         list={list}
