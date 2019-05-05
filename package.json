@@ -7,6 +7,11 @@
     "test": "jest",
     "test-cover": "jest --coverage"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss|sass|less)$": "identity-obj-proxy"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/GQSM/fish_studio.git"
