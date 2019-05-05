@@ -8,11 +8,23 @@ const Header = (props) => {
     list,
     detailDataRow,
     changeData,
+    changeTodolistStatus,
   } = props;
+
+  const getTitleStyles = (completed, important) => {
+    let result = '';
+    result += `${completed ? styles.completed_task_title : ''} `;
+    result += `${important ? styles.import_task_header : ''} `;
+    return result;
+  };
   return (
     <div className={list.import ? styles.import_task_header : styles.task_header}>
       <div className={type === 'display' ? styles.display_main_data : styles.main_data}>
-        <div className={styles.complete_check_block}>
+        <div
+          className={styles.complete_check_block}
+          onClick={() => { changeTodolistStatus('completed'); }}
+          onKeyPress={() => { console.log('complete'); }}
+        >
           {
             list.completed
               ? <i className={`fas fa-check-square ${styles.check_completed}`} />
@@ -23,11 +35,7 @@ const Header = (props) => {
           {type === 'display'
             ? (
               <span
-                className={`${styles.task_title} ${
-                  list.completed ? styles.completed_task_title : ''
-                } ${
-                  list.import ? styles.import_task_header : ''
-                }`}
+                className={`${styles.task_title} ${getTitleStyles(list.completed, list.import)}`}
               >
                 {list.title}
               </span>
@@ -36,9 +44,7 @@ const Header = (props) => {
               <input
                 type="text"
                 value={list.title}
-                className={`${styles.task_title} ${
-                  list.import ? styles.import_task_header : ''
-                }`}
+                className={`${styles.task_title} ${getTitleStyles(list.completed, list.import)}`}
                 placeholder="Type Something Here…"
                 onChange={(event) => {
                   changeData({
@@ -50,7 +56,10 @@ const Header = (props) => {
             )
           }
         </div>
-        <div>
+        <div
+          onClick={() => { changeTodolistStatus('import'); }}
+          onKeyPress={() => { console.log('import'); }}
+        >
           {
             list.import
               ? <i className={`fas fa-star ${list.import ? styles.check_import : ''}`} />
@@ -82,6 +91,7 @@ Header.propTypes = {
   }),
   detailDataRow: PropTypes.shape(),
   changeData: PropTypes.func,
+  changeTodolistStatus: PropTypes.func,
 };
 
 Header.defaultProps = {
@@ -100,6 +110,7 @@ Header.defaultProps = {
   },
   detailDataRow: <></>,
   changeData: () => { console.log('Header changeData'); },
+  changeTodolistStatus: () => { console.log('Header changeTodolistStatus'); },
 };
 
 export default Header;
