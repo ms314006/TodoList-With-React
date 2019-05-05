@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
-import { ADD_TODOLIST, CHANGE_TODOLIST_STATUS } from '../../actions/todolist';
+import { addTodolist } from '../../actions/todolist';
 import styles from './index.scss';
 
 const Task = (props) => {
   const {
     switchAddTask,
     list,
-    addTodoList,
+    addTodolist,
   } = props;
   const [data, changeData] = useState(list);
 
-  const changeTodolistStatus = (status) => {
+  const changeTodolistStatus = (id, status) => {
     const nowStatus = data[status];
     changeData({
       ...data,
@@ -33,7 +33,7 @@ const Task = (props) => {
       <Content list={data} changeData={changeData} />
       <Footer
         switchAddTask={switchAddTask}
-        addTodoList={() => { addTodoList(data); }}
+        addTodoList={() => { addTodolist(data); }}
       />
     </div>
   );
@@ -52,7 +52,7 @@ Task.propTypes = {
     file: PropTypes.string,
     description: PropTypes.string,
   }),
-  addTodoList: PropTypes.func,
+  addTodolist: PropTypes.func,
 };
 
 Task.defaultProps = {
@@ -68,21 +68,11 @@ Task.defaultProps = {
     file: '',
     description: '',
   },
-  addTodoList: () => { console.log('Task addTodoList'); },
+  addTodolist: () => { console.log('Task addTodolist'); },
 };
 
 const mapDispatchToProps = dispatch => ({
-  addTodoList: list => (
-    dispatch({
-      type: ADD_TODOLIST,
-      list,
-    })),
-  changeTodolistStatus: status => (
-    dispatch({
-      type: CHANGE_TODOLIST_STATUS,
-      status,
-    })
-  ),
+  addTodolist: (list) => { dispatch(addTodolist(list)); },
 });
 
 export default connect(null, mapDispatchToProps)(Task);
