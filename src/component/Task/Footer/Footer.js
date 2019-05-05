@@ -27,10 +27,12 @@ const Footer = (props) => {
 
 Footer.propTypes = {
   switchAddTask: PropTypes.func,
+  addTodoList: PropTypes.func,
 };
 
 Footer.defaultProps = {
-  switchAddTask: () => { console.log('Task'); },
+  switchAddTask: () => { console.log('Footer switchAddTask'); },
+  addTodoList: () => { console.log('Footer addTodoList'); },
 };
 
 export default Footer;
