@@ -10,7 +10,7 @@ const initState = {
   todolist: [{
     id: 1,
     onEdit: false,
-    import: false,
+    important: false,
     completed: false,
     title: '打文章',
     deadlineDate: '2019-05-03',

@@ -14,11 +14,11 @@ const Header = (props) => {
   const getTitleStyles = (completed, important) => {
     let result = '';
     result += `${completed ? styles.completed_task_title : ''} `;
-    result += `${important ? styles.import_task_header : ''} `;
+    result += `${important ? styles.important_task_header : ''} `;
     return result;
   };
   return (
-    <div className={list.import ? styles.import_task_header : styles.task_header}>
+    <div className={list.important ? styles.important_task_header : styles.task_header}>
       <div className={type === 'display' ? styles.display_main_data : styles.main_data}>
         <div
           className={styles.complete_check_block}
@@ -35,7 +35,7 @@ const Header = (props) => {
           {type === 'display'
             ? (
               <span
-                className={`${styles.task_title} ${getTitleStyles(list.completed, list.import)}`}
+                className={`${styles.task_title} ${getTitleStyles(list.completed, list.important)}`}
               >
                 {list.title}
               </span>
@@ -44,7 +44,7 @@ const Header = (props) => {
               <input
                 type="text"
                 value={list.title}
-                className={`${styles.task_title} ${getTitleStyles(list.completed, list.import)}`}
+                className={`${styles.task_title} ${getTitleStyles(list.completed, list.important)}`}
                 placeholder="Type Something Here…"
                 onChange={(event) => {
                   changeData({
@@ -57,12 +57,12 @@ const Header = (props) => {
           }
         </div>
         <div
-          onClick={() => { changeTodolistStatus('import'); }}
-          onKeyPress={() => { console.log('import'); }}
+          onClick={() => { changeTodolistStatus('important'); }}
+          onKeyPress={() => { console.log('important'); }}
         >
           {
-            list.import
-              ? <i className={`fas fa-star ${list.import ? styles.check_import : ''}`} />
+            list.important
+              ? <i className={`fas fa-star ${list.important ? styles.check_important : ''}`} />
               : <i className="far fa-star" />
           }
         </div>
@@ -80,7 +80,7 @@ Header.propTypes = {
   list: PropTypes.shape({
     id: PropTypes.number,
     onEdit: PropTypes.bool,
-    import: PropTypes.bool,
+    important: PropTypes.bool,
     completed: PropTypes.bool,
     title: PropTypes.string,
     deadlineDate: PropTypes.string,
@@ -99,7 +99,7 @@ Header.defaultProps = {
   list: {
     id: 0,
     onEdit: false,
-    import: false,
+    important: false,
     completed: false,
     title: '',
     deadlineDate: '',

@@ -44,7 +44,7 @@ Task.propTypes = {
   list: PropTypes.shape({
     id: PropTypes.number,
     onEdit: PropTypes.bool,
-    import: PropTypes.bool,
+    important: PropTypes.bool,
     completed: PropTypes.bool,
     title: PropTypes.string,
     deadlineDate: PropTypes.string,
@@ -60,7 +60,7 @@ Task.defaultProps = {
   list: {
     id: 0,
     onEdit: false,
-    import: false,
+    important: false,
     completed: false,
     title: '',
     deadlineDate: '',
