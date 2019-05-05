@@ -6,10 +6,18 @@ import styles from './index.scss';
 
 
 const Todolist = (props) => {
-  const { list, } = props;
+  const { list, changeTodolistStatus, } = props;
   return (
     <div className={styles.list_block}>
-      {list.onEdit ? <Task list={list} /> : <List list={list} />}
+      {list.onEdit
+        ? <Task list={list} />
+        : (
+          <List
+            list={list}
+            changeTodolistStatus={changeTodolistStatus}
+          />
+        )
+      }
     </div>
   );
 };

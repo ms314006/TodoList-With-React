@@ -22,7 +22,7 @@ const Header = (props) => {
       <div className={type === 'display' ? styles.display_main_data : styles.main_data}>
         <div
           className={styles.complete_check_block}
-          onClick={() => { changeTodolistStatus('completed'); }}
+          onClick={() => { changeTodolistStatus(list.id, 'completed'); }}
           onKeyPress={() => { console.log('complete'); }}
         >
           {
@@ -57,7 +57,7 @@ const Header = (props) => {
           }
         </div>
         <div
-          onClick={() => { changeTodolistStatus('important'); }}
+          onClick={() => { changeTodolistStatus(list.id, 'important'); }}
           onKeyPress={() => { console.log('important'); }}
         >
           {

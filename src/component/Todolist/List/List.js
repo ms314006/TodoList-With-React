@@ -4,8 +4,7 @@ import Header from '../../Task/Header';
 import styles from './index.scss';
 
 const List = (props) => {
-  const { list, } = props;
-
+  const { list, changeTodolistStatus, } = props;
   const getDetailDataRowFor = (detailData) => {
     const { deadlineDate, file, description, } = detailData;
     const dataIconFor = (type) => {
@@ -50,6 +49,7 @@ const List = (props) => {
             })
           )
         }
+        changeTodolistStatus={changeTodolistStatus}
       />
     </div>
   );
@@ -82,5 +82,4 @@ List.defaultProps = {
     description: '',
   },
 };
-
 export default List;

@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AddInput from './AddInput';
 import Todolist from '../Todolist';
+import { changeTodolistStatus } from '../../actions/todolist';
 import styles from './index.scss';
 
 const Content = (props) => {
-  const { todolist, } = props;
-
+  const { todolist, changeTodolistStatus, } = props;
   const todolistFor = data => (
     data.map(list => (
-      <Todolist key={list.id} list={list} />
+      <Todolist
+        key={list.id}
+        list={list}
+        changeTodolistStatus={changeTodolistStatus}
+      />
     ))
   );
 
@@ -56,4 +60,10 @@ const mapStateToProps = state => ({
   todolist: state.todolist,
 });
 
-export default connect(mapStateToProps)(Content);
+
+const mapDispatchToProps = dispatch => ({
+  changeTodolistStatus: (id, status) => (dispatch(changeTodolistStatus(id, status))),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Content);
