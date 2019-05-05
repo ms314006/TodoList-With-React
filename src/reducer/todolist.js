@@ -28,8 +28,31 @@ const todolist = (state = initState, action) => {
         ...state,
         contentType: action.payload.contentType,
       };
-    case ADD_TODOLIST:
-      return { ...state, };
+    case ADD_TODOLIST: {
+      const getNewId = (listData) => {
+        let result = 2;
+        for (let i = 1; i <= listData.length - 1; i += 1) {
+          if (listData[i].id > listData[i - 1].id) {
+            result = listData[i].id + 1;
+          }
+        }
+        return result;
+      };
+
+      const newId = getNewId(state.todolist);
+
+      const newTodolist = [...state.todolist];
+
+      newTodolist.push({
+        ...action.list,
+        id: newId,
+      });
+
+      return {
+        ...state,
+        todolist: newTodolist,
+      };
+    }
     case MODIFY_TODOLIST:
       return { ...state, };
     case CHANGE_TODOLIST_STATUS:
