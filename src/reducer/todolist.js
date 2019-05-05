@@ -16,6 +16,7 @@ const initState = {
     deadlineDate: '2019-05-03',
     deadlineTime: '05:30',
     file: '文章列表.jpg',
+    uploadFileTime: '2019-05-02',
     description: '輕鬆打一波',
   }],
 };

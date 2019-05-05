@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef, } from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.scss';
 
 const Content = (props) => {
   const { list, changeData, } = props;
+  const inputFile = useRef(null);
   return (
     <div className={styles.task_content_block}>
       <div className={styles.flex_row}>
@@ -53,7 +54,37 @@ const Content = (props) => {
       <div className={styles.flex_row}>
         <div className={styles.flex_col_icon} />
         <div className={styles.flex_col_content}>
-          <i className={`fas fa-plus-square ${styles.add_file_icon}`} />
+          {list.file === ''
+            ? null
+            : (
+              <div className={styles.display_file_name}>
+                {list.file}
+                <br />
+                <span className={styles.display_file_update}>
+                  {list.uploadFileTime}
+                </span>
+              </div>
+            )
+          }
+          <i
+            className={`fas fa-plus-square ${styles.add_file_icon}`}
+            onClick={() => { inputFile.current.click(); }}
+            onKeyPress={() => { inputFile.current.click(); }}
+          />
+          <input
+            type="file"
+            ref={inputFile}
+            style={{ display: 'none', }}
+            onChange={(event) => {
+              const now = new Date();
+              const filePath = event.target.value;
+              changeData({
+                ...list,
+                file: filePath.split('\\')[filePath.split('\\').length - 1],
+                uploadFileTime: `uploaded ${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
+              });
+            }}
+          />
         </div>
       </div>
       <div className={styles.flex_row}>
@@ -96,6 +127,7 @@ Content.propTypes = {
     deadlineDate: PropTypes.string,
     deadlineTime: PropTypes.string,
     file: PropTypes.string,
+    uploadFileTime: PropTypes.string,
     description: PropTypes.string,
   }),
   changeData: PropTypes.func,
@@ -111,6 +143,7 @@ Content.defaultProps = {
     deadlineDate: '',
     deadlineTime: '',
     file: '',
+    uploadFileTime: '',
     description: '',
   },
   changeData: () => { console.log('Header changeData'); },

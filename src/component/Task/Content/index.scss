@@ -28,10 +28,20 @@ textarea {
 }
 
 .add_file_icon {
-  font-size: 28px;
+  font-size: 32px;
   color: #C8C8C8;
 }
 
 .add_file_icon:hover {
   color: #4A90E2;
+}
+
+.display_file_name {
+  margin-right: 15px;
+  font-size: 16px;
+  display: inline-block;
+
+  .display_file_update {
+    color: #757575;
+  }
 }

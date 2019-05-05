@@ -23,6 +23,7 @@ Todolist.propTypes = {
     deadlineDate: PropTypes.string,
     deadlineTime: PropTypes.string,
     file: PropTypes.string,
+    uploadFileTime: PropTypes.string,
     description: PropTypes.string,
   }),
 };
@@ -37,6 +38,7 @@ Todolist.defaultProps = {
     deadlineDate: '',
     deadlineTime: '',
     file: '',
+    uploadFileTime: '',
     description: '',
   },
 };
