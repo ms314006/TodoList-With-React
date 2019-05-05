@@ -50,7 +50,7 @@ describe('test reducer', () => {
       onEdit: false,
       important: false,
       completed: false,
-      title: '待辦事項二',
+      title: '測試事項',
       deadlineDate: '2019-07-18',
       deadlineTime: '14:33',
       file: '流程圖.jpg',
@@ -77,6 +77,17 @@ describe('test reducer', () => {
       }],
     };
     expect(reducer(initialData, actions.addTodolist(newList))).toEqual(expectObject);
+
+    // 再新增一筆
+    const newInitialData = { ...expectObject, };
+    expectObject.todolist = [
+      ...expectObject.todolist,
+      {
+        ...newList,
+        id: 3,
+      }
+    ];
+    expect(reducer(newInitialData, actions.addTodolist(newList))).toEqual(expectObject);
   });
 
   test('修改資料', () => {
