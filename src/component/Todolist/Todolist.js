@@ -13,6 +13,7 @@ const Todolist = (props) => {
         ? (
           <Task
             list={list}
+            modelType="modify"
             switchAddTask={() => { changeTodolistStatus(list.id, 'onEdit'); }}
           />
         )

@@ -53,8 +53,18 @@ const todolist = (state = initState, action) => {
         todolist: newTodolist,
       };
     }
-    case MODIFY_TODOLIST:
-      return { ...state, };
+    case MODIFY_TODOLIST: {
+      const targetListIndex = state.todolist.findIndex(list => (
+        list.id === action.payload.list.id
+      ));
+      const newTodolist = [...state.todolist];
+
+      newTodolist[targetListIndex] = action.payload.list;
+      return {
+        ...state,
+        todolist: newTodolist,
+      };
+    }
     case CHANGE_TODOLIST_STATUS: {
       const targetListIndex = state.todolist.findIndex(list => (
         list.id === action.payload.id

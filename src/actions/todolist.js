@@ -20,10 +20,12 @@ export const addTodolist = todolist => ({
 
 export const MODIFY_TODOLIST = 'MODIFY_TODOLIST';
 
-export const modifyTodoList = todolist => ({
+export const modifyTodolist = todolist => ({
   type: MODIFY_TODOLIST,
   payload: {
-    ...todolist,
+    list: {
+      ...todolist,
+    },
   },
 });
 

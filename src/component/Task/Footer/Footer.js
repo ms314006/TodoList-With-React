@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './index.scss';
 
 const Footer = (props) => {
-  const { switchAddTask, addTodoList, } = props;
+  const { switchAddTask, handleTodolist, } = props;
   return (
     <div className={styles.task_footer}>
       <button
@@ -16,7 +16,7 @@ const Footer = (props) => {
       <button
         type="button"
         className={`${styles.save_button} ${styles.footer_button}`}
-        onClick={() => { addTodoList(); }}
+        onClick={() => { handleTodolist(); }}
       >
         ＋ Add Tasks
       </button>
@@ -27,12 +27,12 @@ const Footer = (props) => {
 
 Footer.propTypes = {
   switchAddTask: PropTypes.func,
-  addTodoList: PropTypes.func,
+  handleTodolist: PropTypes.func,
 };
 
 Footer.defaultProps = {
   switchAddTask: () => { console.log('Footer switchAddTask'); },
-  addTodoList: () => { console.log('Footer addTodoList'); },
+  handleTodolist: () => { console.log('Footer handleTodolist'); },
 };
 
 export default Footer;

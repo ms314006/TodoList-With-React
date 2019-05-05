@@ -21,7 +21,14 @@ const AddInput = () => {
           </button>
         )
       }
-      {openAddTask ? <Task switchAddTask={switchAddTask} /> : null}
+      {openAddTask
+        ? (
+          <Task
+            modelType="insert"
+            switchAddTask={switchAddTask}
+          />
+        )
+        : null}
     </div>
   );
 };
