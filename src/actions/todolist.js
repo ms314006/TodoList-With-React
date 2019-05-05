@@ -12,7 +12,9 @@ export const ADD_TODOLIST = 'ADD_TODOLIST';
 export const addTodolist = todolist => ({
   type: ADD_TODOLIST,
   payload: {
-    ...todolist,
+    list: {
+      ...todolist,
+    },
   },
 });
 
@@ -27,7 +29,7 @@ export const modifyTodoList = todolist => ({
 
 export const CHANGE_TODOLIST_STATUS = 'CHANGE_TODOLIST_STATUS';
 
-export const changeTodolistStatus = ({ id, status, }) => ({
+export const changeTodolistStatus = (id, status) => ({
   type: CHANGE_TODOLIST_STATUS,
   payload: {
     id,
