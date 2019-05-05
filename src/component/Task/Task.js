@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
+import { ADD_TODOLIST } from '../../actions/todolist';
 import styles from './index.scss';
 
 const Task = (props) => {
-  const { switchAddTask, list, } = props;
+  const { switchAddTask, list, addTodoList, } = props;
   const [data, changeData] = useState(list);
   return (
     <div className={styles.task_block}>
       <Header list={data} changeData={changeData} />
       <Content list={data} changeData={changeData} />
-      <Footer switchAddTask={switchAddTask} />
+      <Footer
+        switchAddTask={switchAddTask}
+        addTodoList={() => { addTodoList(data); }}
+      />
     </div>
   );
 };
@@ -47,4 +52,12 @@ Task.defaultProps = {
   },
 };
 
-export default Task;
+const mapDispatchToProps = dispatch => ({
+  addTodoList: list => (
+    dispatch({
+      type: ADD_TODOLIST,
+      list,
+    })),
+});
+
+export default connect(null, mapDispatchToProps)(Task);

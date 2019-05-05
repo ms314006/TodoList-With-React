@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './index.scss';
 
 const Footer = (props) => {
-  const { switchAddTask, } = props;
+  const { switchAddTask, addTodoList, } = props;
   return (
     <div className={styles.task_footer}>
       <button
@@ -16,7 +16,7 @@ const Footer = (props) => {
       <button
         type="button"
         className={`${styles.save_button} ${styles.footer_button}`}
-        onClick={() => { switchAddTask(); }}
+        onClick={() => { addTodoList(); }}
       >
         ＋ Add Tasks
       </button>
