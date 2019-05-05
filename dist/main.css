@@ -2,9 +2,21 @@
 
 .src-component-Header-___index__header___lx1LI{display:flex;justify-content:center;flex-wrap:wrap;background:#4A90E2}
 
+.src-component-Task-Header-___index__task_header___1uzpX{background:#F2F2F2;border-radius:5px}.src-component-Task-Header-___index__main_data___-s2Kl{display:flex;justify-content:space-around;align-items:center;height:76px;font-size:24px;color:#000000;border-bottom:2px solid #C8C8C8}.src-component-Task-Header-___index__display_main_data___1Mh7t{display:flex;justify-content:space-around;align-items:center;height:76px;font-size:24px;color:#000000}.src-component-Task-Header-___index__check_completed___1LcIR{color:#4A90E2}.src-component-Task-Header-___index__title_block___2k7Vw{width:420px}.src-component-Task-Header-___index__task_title___22p-0{width:100%;font-size:24px;background:#F2F2F2;border:none}.src-component-Task-Header-___index__completed_task_title___1vftC{text-decoration:line-through;color:#9B9B9B}.src-component-Task-Header-___index__check_important___4yNDQ{color:#F5A623}.src-component-Task-Header-___index__edit_tasks_icon___1cjba{color:#4A90E2}.src-component-Task-Header-___index__list_title_block___3XrPl{width:450px}.src-component-Task-Header-___index__important_task_header___3rv5c{background:#FFF2DC}
+
+.src-component-Task-Content-___index__task_content_block___A1G4m{padding:20px 80px 35px 80px;font-size:20px}.src-component-Task-Content-___index__flex_row___3_Jva{display:flex;margin-top:15px}.src-component-Task-Content-___index__flex_col_icon___2gej3{flex-shrink:9;width:100%}.src-component-Task-Content-___index__flex_col_content___3pIxy{flex-shrink:1;width:100%}.src-component-Task-Content-___index__input_task_data___3dQRB{font-size:16px;border:none}textarea{resize:none}.src-component-Task-Content-___index__add_file_icon___2hUTK{font-size:32px;color:#C8C8C8}.src-component-Task-Content-___index__add_file_icon___2hUTK:hover{color:#4A90E2}.src-component-Task-Content-___index__display_file_name___2GyiP{margin-right:15px;font-size:16px;display:inline-block}.src-component-Task-Content-___index__display_file_name___2GyiP .src-component-Task-Content-___index__display_file_update___20ruu{color:#757575}
+
+.src-component-Task-Footer-___index__task_footer___3Eukl{display:flex}.src-component-Task-Footer-___index__footer_button___1DW-l{width:100%;height:60px;font-size:24px;text-align:center;border:none}.src-component-Task-Footer-___index__cancel_button___Whgat{color:#D0021B}.src-component-Task-Footer-___index__cancel_button___Whgat:hover{background:#FBFBFB}.src-component-Task-Footer-___index__save_button___E0xe2{background:#4A90E2;color:#FFFFFF}.src-component-Task-Footer-___index__save_button___E0xe2:hover{background:#3982D7}
+
+.src-component-Task-___index__task_block___2xfel{background:#F2F2F2;box-shadow:0 4px 4px 0 #C8C8C8;border-radius:5px}
+
 .src-component-Content-AddInput-___index__add_tasks_block___2E4dX{margin:24px 0px 24px 0px}.src-component-Content-AddInput-___index__add_tasks_button___1C3xH{width:100%;height:65px;text-align:left;background:#FFFFFF;border:2px solid #C8C8C8;border-radius:5px;font-size:24px;color:#C8C8C8}
 
-.src-component-Content-___index__content___1Fnt4{width:100%;background:#E1E1E1}.src-component-Content-___index__content_list___11XGF{margin:auto;width:670px}
+.src-component-Todolist-List-___index__detail_data_row___48tRE{padding:0px 0px 15px 80px;color:#757575}.src-component-Todolist-List-___index__detail_data_gap___2XH5l{margin-right:15px}
+
+.src-component-Todolist-___index__list_block___3LoeZ{margin-bottom:20px}
+
+.src-component-Content-___index__content___1Fnt4{width:100%;background:#E1E1E1}.src-component-Content-___index__content_list___11XGF{margin:auto;width:670px}.src-component-Content-___index__todolist_count___4tprl{font-style:italic;font-size:24px;color:#C8C8C8}
 
 .src-component-Main-___index__main___1vIeC{width:100%;height:100%;display:grid;grid-template-rows:76px}
 
