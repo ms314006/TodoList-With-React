@@ -42,6 +42,7 @@ module.exports = {
       'react/jsx-no-bind': ['error', {'allowBind': true, 'allowArrowFunctions': true}],
       'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
       'jsx-a11y/no-static-element-interactions': ['off'],
-      'import/extensions': ['warn', 'always']
+      'import/extensions': ['warn', 'always'],
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   },
 };
