@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import List from './List';
 import Task from '../Task';
+import styles from './index.scss';
 
 
 const Todolist = (props) => {
   const { list, } = props;
   return (
-    <div>
+    <div className={styles.list_block}>
       {list.onEdit ? <Task list={list} /> : <List list={list} />}
     </div>
   );
