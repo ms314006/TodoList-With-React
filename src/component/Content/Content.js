@@ -7,22 +7,78 @@ import { changeTodolistStatus } from '../../actions/todolist';
 import styles from './index.scss';
 
 const Content = (props) => {
-  const { todolist, changeTodolistStatus, } = props;
-  const todolistFor = data => (
-    data.map(list => (
-      <Todolist
-        key={list.id}
-        list={list}
-        changeTodolistStatus={changeTodolistStatus}
-      />
-    ))
+  const { todolist, changeTodolistStatus, contentType, } = props;
+
+  const sortForImportant = (next, previous) => (
+    next.important < previous.important ? 1 : -1
   );
+
+  const sortFor = (data, type) => {
+    // 先取得完成和未完成的
+    const completeList = data.filter(list => (
+      list.completed
+    ));
+
+    completeList.sort(sortForImportant);
+
+    const inProgressList = data.filter(list => (
+      !list.completed
+    ));
+
+    inProgressList.sort(sortForImportant);
+
+    let result;
+    switch (type) {
+      case 'Completed':
+        result = completeList;
+        break;
+      case 'In Progress':
+        result = inProgressList;
+        break;
+      case 'My Tasks':
+        result = [
+          ...inProgressList,
+          ...completeList
+        ];
+        break;
+      default:
+    }
+
+    return result;
+  };
+
+  const todolistFor = (data) => {
+    const newData = sortFor(data, contentType);
+    return (
+      newData.map(list => (
+        <Todolist
+          key={list.id}
+          list={list}
+          changeTodolistStatus={changeTodolistStatus}
+        />
+      ))
+    );
+  };
+
+  const todolistCount = (data) => {
+    let count = 0;
+    data.forEach((list) => {
+      if (!list.completed) {
+        count += 1;
+      }
+    });
+
+    return count;
+  };
 
   return (
     <div className={styles.content}>
       <div className={styles.content_list}>
         <AddInput />
         { todolistFor(todolist) }
+        <div className={styles.todolist_count}>
+          { `${todolistCount(todolist)} tasks left`}
+        </div>
       </div>
     </div>
   );
@@ -40,6 +96,8 @@ Content.propTypes = {
     file: PropTypes.string,
     description: PropTypes.string,
   })),
+  changeTodolistStatus: PropTypes.func,
+  contentType: PropTypes.string,
 };
 
 Content.defaultProps = {
@@ -54,10 +112,13 @@ Content.defaultProps = {
     file: '',
     description: '',
   }],
+  changeTodolistStatus: () => { console.log('Content changeTodolistStatus'); },
+  contentType: '',
 };
 
 const mapStateToProps = state => ({
   todolist: state.todolist,
+  contentType: state.contentType,
 });
 
 
