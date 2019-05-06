@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup } from 'react-testing-library';
+import { render, cleanup } from 'react-testing-library';
 import { toBeInTheDocument } from 'jest-dom';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
