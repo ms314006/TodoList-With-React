@@ -126,5 +126,6 @@ const mapDispatchToProps = dispatch => ({
   changeTodolistStatus: (id, status) => (dispatch(changeTodolistStatus(id, status))),
 });
 
+export { Content as PureContent };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);
