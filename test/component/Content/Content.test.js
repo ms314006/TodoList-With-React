@@ -68,7 +68,6 @@ describe('test <Content />', () => {
 
   test('確認 contentType 為 My Tasks 時，listBlock 的 render 數', () => {
     const { container, } = render(<Content {...props} />);
-    // listBlock 應該要被 render 出兩個，因為有兩個 list
     expect(getListBlockCount(container)).toBe(3);
   });
 
