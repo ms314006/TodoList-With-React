@@ -113,7 +113,7 @@ Content.defaultProps = {
     description: '',
   }],
   changeTodolistStatus: () => { console.log('Content changeTodolistStatus'); },
-  contentType: '',
+  contentType: 'My Tasks',
 };
 
 const mapStateToProps = state => ({
