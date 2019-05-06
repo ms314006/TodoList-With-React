@@ -43,4 +43,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+export { Header as PureHeader };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
