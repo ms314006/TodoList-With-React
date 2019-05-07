@@ -6,7 +6,6 @@ const Header = (props) => {
   const {
     type,
     list,
-    detailDataRow,
     changeData,
     changeTodolistStatus,
   } = props;
@@ -29,6 +28,37 @@ const Header = (props) => {
       });
     }
   };
+
+  const getDetailDataRowFor = (detailData) => {
+    const { deadlineDate, file, description, } = detailData;
+    const dataIconFor = (dataType) => {
+      switch (dataType) {
+        case 'date':
+          return (
+            <>
+              <i className={`far fa-calendar-alt ${styles.detail_data_gap}`} />
+              <span className={styles.detail_data_gap}>
+                {deadlineDate.slice(5).replace('-', '/')}
+              </span>
+            </>
+          );
+        case 'file':
+          return <i className={`far fa-file ${styles.detail_data_gap}`} />;
+        case 'description':
+          return <i className={`far fa-comment-dots ${styles.detail_data_gap}`} />;
+        default:
+          return null;
+      }
+    };
+    return (
+      <div className={styles.detail_data_row}>
+        { deadlineDate === '' ? null : dataIconFor('date') }
+        { file === '' ? null : dataIconFor('file') }
+        { description === '' ? null : dataIconFor('description') }
+      </div>
+    );
+  };
+
   return (
     <div className={list.important ? styles.important_task_header : styles.task_header}>
       <div className={type === 'display' ? styles.display_main_data : styles.main_data}>
@@ -89,7 +119,13 @@ const Header = (props) => {
           <i className={`fas fa-pen ${type === 'display' ? '' : styles.edit_tasks_icon}`} />
         </div>
       </div>
-      {detailDataRow || null}
+      {type === 'display'
+        ? (getDetailDataRowFor({
+          deadlineDate: list.deadlineDate,
+          file: list.file,
+          description: list.description,
+        }))
+        : null}
     </div>
   );
 };
@@ -108,7 +144,6 @@ Header.propTypes = {
     uploadFileTime: PropTypes.string,
     description: PropTypes.string,
   }),
-  detailDataRow: PropTypes.shape(),
   changeData: PropTypes.func,
   changeTodolistStatus: PropTypes.func,
 };
@@ -127,7 +162,6 @@ Header.defaultProps = {
     uploadFileTime: '',
     description: '',
   },
-  detailDataRow: <></>,
   changeData: () => {},
   changeTodolistStatus: () => {},
 };
