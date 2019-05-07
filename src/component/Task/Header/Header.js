@@ -17,13 +17,25 @@ const Header = (props) => {
     result += `${important ? styles.important_task_header : ''} `;
     return result;
   };
+
+  const handleTodolistStatus = (id, status) => {
+    if (type === 'display') {
+      changeTodolistStatus(id, status);
+    } else {
+      const nowStatus = list[status];
+      changeData({
+        ...list,
+        [status]: !nowStatus,
+      });
+    }
+  };
   return (
     <div className={list.important ? styles.important_task_header : styles.task_header}>
       <div className={type === 'display' ? styles.display_main_data : styles.main_data}>
         <div
           className={styles.complete_check_block}
           onClick={(event) => {
-            changeTodolistStatus(list.id, 'completed');
+            handleTodolistStatus(list.id, 'completed');
             event.stopPropagation();
           }}
           onKeyPress={() => { console.log('complete'); }}
@@ -60,15 +72,16 @@ const Header = (props) => {
           }
         </div>
         <div
+          data-testid="import_block"
           onClick={(event) => {
-            changeTodolistStatus(list.id, 'important');
+            handleTodolistStatus(list.id, 'important');
             event.stopPropagation();
           }}
           onKeyPress={() => { console.log('important'); }}
         >
           {
             list.important
-              ? <i className={`fas fa-star ${list.important ? styles.check_important : ''}`} />
+              ? <i className={`fas fa-star ${styles.check_important}`} />
               : <i className="far fa-star" />
           }
         </div>
@@ -115,8 +128,8 @@ Header.defaultProps = {
     description: '',
   },
   detailDataRow: <></>,
-  changeData: () => { console.log('Header changeData'); },
-  changeTodolistStatus: () => { console.log('Header changeTodolistStatus'); },
+  changeData: () => {},
+  changeTodolistStatus: () => {},
 };
 
 export default Header;

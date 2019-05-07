@@ -17,38 +17,19 @@ const Task = (props) => {
   } = props;
   const [data, changeData] = useState(list);
 
-  const changeTodolistStatus = (id, status) => {
-    const nowStatus = data[status];
-    changeData({
-      ...data,
-      [status]: !nowStatus,
-    });
-  };
-
-  const handleTodolist = (type) => {
-    switch (type) {
-      case 'insert':
-        addTodolist(data);
-        break;
-      case 'modify':
-        modifyTodolist(data);
-        break;
-      default:
-    }
-    switchAddTask();
-  };
-
   return (
     <div className={styles.task_block}>
       <Header
         list={data}
         changeData={changeData}
-        changeTodolistStatus={changeTodolistStatus}
       />
       <Content list={data} changeData={changeData} />
       <Footer
+        data={data}
+        modelType={modelType}
         switchAddTask={switchAddTask}
-        handleTodolist={() => { handleTodolist(modelType); }}
+        addTodolist={addTodolist}
+        modifyTodolist={modifyTodolist}
       />
     </div>
   );
@@ -73,7 +54,7 @@ Task.propTypes = {
 };
 
 Task.defaultProps = {
-  switchAddTask: () => { console.log('Task'); },
+  switchAddTask: () => {},
   list: {
     id: 0,
     onEdit: false,
@@ -85,8 +66,8 @@ Task.defaultProps = {
     file: '',
     description: '',
   },
-  addTodolist: () => { console.log('Task addTodolist'); },
-  modifyTodolist: () => { console.log('Task modifyTodolist'); },
+  addTodolist: () => {},
+  modifyTodolist: () => {},
   modelType: 'insert',
 };
 
@@ -94,5 +75,7 @@ const mapDispatchToProps = dispatch => ({
   addTodolist: (list) => { dispatch(addTodolist(list)); },
   modifyTodolist: (list) => { dispatch(modifyTodolist(list)); },
 });
+
+export { Task as PureTask };
 
 export default connect(null, mapDispatchToProps)(Task);
