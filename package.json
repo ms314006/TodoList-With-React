@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test-cover": "jest --coverage"
+    "test-cover": "jest --coverage",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "jest": {
     "moduleNameMapper": {
@@ -39,6 +40,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.6.0",
     "babel-loader": "^8.0.4",
+    "coveralls": "^3.0.3",
     "css-loader": "^1.0.1",
     "eslint": "^5.15.2",
     "eslint-config-airbnb": "^17.1.0",
